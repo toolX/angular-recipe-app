@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-recipes',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private authService: AuthService) { }
 
   ngOnInit() {
-    
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/signin'], { relativeTo: this.route });
+    }
   }
   
 }
