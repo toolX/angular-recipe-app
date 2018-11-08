@@ -30,4 +30,8 @@ export class HeaderComponent {
     this.authService.logout();
     this.router.navigate(['/'], { relativeTo: this.route });
   }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
 }
