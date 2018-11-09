@@ -16,10 +16,7 @@ export class HeaderComponent {
               private router: Router) {}
 
   onSaveData() {
-    this.dataStorageService.storeRecipes()
-      .subscribe(
-        response => console.log(response)
-      );
+    this.dataStorageService.storeRecipes().subscribe();
   }
 
   onFetchData() {
